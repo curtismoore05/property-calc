@@ -44,7 +44,7 @@ export default function Header() {
               Calculators
               <ChevronDown className="w-3.5 h-3.5" />
             </button>
-            <div className="absolute top-full left-0 mt-2 w-60 bg-card border border-border rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+            <div className="absolute top-full left-0 mt-2 w-60 bg-card border border-border rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
               {calculators.map((c) => (
                 <Link
                   key={c.href}
@@ -69,7 +69,7 @@ export default function Header() {
 
           <Link
             href="/book-a-call"
-            className="border border-accent text-accent px-4 py-1.5 rounded hover:bg-accent/10 transition-colors"
+            className="border border-accent text-accent px-4 py-1.5 rounded-md text-sm font-medium hover:bg-accent/10 transition-colors duration-200"
           >
             Book a Call
           </Link>
