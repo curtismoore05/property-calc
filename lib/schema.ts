@@ -1,6 +1,29 @@
 import { siteUrl, siteName } from './seo'
 import type { Post } from './blog'
 
+/** Site-wide Organization + WebSite JSON-LD (rendered once in the root layout). */
+export function siteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': `${siteUrl}/#organization`,
+        name: siteName,
+        url: siteUrl,
+        logo: `${siteUrl}/icon.png`,
+      },
+      {
+        '@type': 'WebSite',
+        '@id': `${siteUrl}/#website`,
+        name: siteName,
+        url: siteUrl,
+        publisher: { '@id': `${siteUrl}/#organization` },
+      },
+    ],
+  }
+}
+
 /** JSON-LD BlogPosting structured data for a blog article (SEO/rich results). */
 export function blogPostingSchema(post: Post) {
   const url = `${siteUrl}/blog/${post.slug}`

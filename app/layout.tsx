@@ -4,6 +4,7 @@ import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import RouteTransition from '@/components/layout/RouteTransition'
+import { siteSchema } from '@/lib/schema'
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -23,6 +24,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={dmSans.variable}>
       <body className="flex flex-col min-h-screen bg-background text-foreground font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema()) }}
+        />
         <Header />
         <main className="flex-grow pt-16">
           <RouteTransition>{children}</RouteTransition>
