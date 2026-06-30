@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://propertycalc.com.au',
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://realestatecalculators.com.au',
   generateRobotsTxt: true,
   robotsTxtOptions: {
     policies: [

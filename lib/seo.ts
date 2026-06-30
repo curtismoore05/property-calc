@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://propertycalc.com.au'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://realestatecalculators.com.au'
 const siteName = 'Property Calc'
 const defaultDescription =
   'Free Australian property calculators and mortgage tools for investors and home buyers.'
