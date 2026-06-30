@@ -12,6 +12,7 @@ import {
   type RentFrequency,
 } from '@/lib/calculators/rentalYield'
 import { formatCurrency, formatPercent } from '@/lib/utils'
+import { CalcGrid, CalcInputs, CalcResults } from '@/components/calculators/CalcLayout'
 
 const FREQUENCY_OPTIONS = [
   { value: 'weekly', label: 'per week' },
@@ -47,7 +48,8 @@ export default function RentalYieldCalculator() {
   }
 
   return (
-    <div className="space-y-6 animate-children">
+    <CalcGrid>
+      <CalcInputs>
       <Card>
         <CardHeader>
           <TrendingUp className="h-5 w-5 text-accent" />
@@ -104,7 +106,9 @@ export default function RentalYieldCalculator() {
           </Button>
         </CardBody>
       </Card>
+      </CalcInputs>
 
+      <CalcResults>
       {result && (
         <Card gold>
           <CardHeader>
@@ -136,6 +140,7 @@ export default function RentalYieldCalculator() {
           </CardBody>
         </Card>
       )}
-    </div>
+      </CalcResults>
+    </CalcGrid>
   )
 }

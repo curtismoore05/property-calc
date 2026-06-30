@@ -8,6 +8,7 @@ import { Card, CardHeader, CardBody, CardLabel, ResultRow } from '@/components/u
 import { calculateLandTax, type OwnerType } from '@/lib/calculators/landTax'
 import { STATE_OPTIONS, type StateCode } from '@/lib/calculators/stampDuty'
 import { formatCurrency, formatPercent } from '@/lib/utils'
+import { CalcGrid, CalcInputs, CalcResults } from '@/components/calculators/CalcLayout'
 
 const OWNER_OPTIONS = [
   { value: 'Individual', label: 'Individual' },
@@ -31,7 +32,8 @@ export default function LandTaxCalculator() {
   )
 
   return (
-    <div className="space-y-6 animate-children">
+    <CalcGrid>
+      <CalcInputs>
       <Card>
         <CardHeader>
           <Map className="h-5 w-5 text-accent" />
@@ -51,7 +53,9 @@ export default function LandTaxCalculator() {
           )}
         </CardBody>
       </Card>
+      </CalcInputs>
 
+      <CalcResults>
       {!r ? (
         <Card>
           <CardBody>
@@ -90,6 +94,7 @@ export default function LandTaxCalculator() {
           </Card>
         </>
       )}
-    </div>
+      </CalcResults>
+    </CalcGrid>
   )
 }

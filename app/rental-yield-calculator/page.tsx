@@ -10,9 +10,9 @@ export const metadata = generateMetadata({
 
 export default function RentalYieldPage() {
   return (
-    <div className="max-w-2xl mx-auto px-4 py-8">
+    <div className="max-w-5xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold tracking-tight text-foreground">Rental Yield Calculator</h1>
-      <p className="mt-2 text-sm text-muted-foreground">
+      <p className="mt-2 text-sm text-muted-foreground max-w-2xl">
         Rental yield tells you how much income a property generates relative to its price. Gross
         yield uses rent alone; net yield factors in vacancy and ongoing expenses for a truer picture
         of your return.

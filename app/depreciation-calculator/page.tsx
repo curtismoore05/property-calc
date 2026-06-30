@@ -10,9 +10,9 @@ export const metadata = generateMetadata({
 
 export default function DepreciationPage() {
   return (
-    <div className="max-w-2xl mx-auto px-4 py-8">
+    <div className="max-w-5xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold tracking-tight text-foreground">Depreciation Calculator</h1>
-      <p className="mt-2 text-sm text-muted-foreground">
+      <p className="mt-2 text-sm text-muted-foreground max-w-2xl">
         Depreciation lets you claim the declining value of a building and its fittings as a tax
         deduction. Estimate your potential first-year and five-year deductions.
       </p>

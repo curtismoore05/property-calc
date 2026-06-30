@@ -5,6 +5,7 @@ import { Star } from 'lucide-react'
 import Input from '@/components/ui/Input'
 import { Card, CardHeader, CardBody, CardLabel, ResultRow } from '@/components/ui/Card'
 import { calculatePropertyDeal, DEAL_DEFAULTS } from '@/lib/calculators/propertyDeal'
+import { CalcGrid, CalcInputs, CalcResults } from '@/components/calculators/CalcLayout'
 import { formatCurrency, formatPercent } from '@/lib/utils'
 
 const RATING_COLOR: Record<string, string> = {
@@ -72,7 +73,8 @@ export default function DealScorer() {
   ]
 
   return (
-    <div className="space-y-6 animate-children">
+    <CalcGrid>
+      <CalcInputs>
       <Card>
         <CardHeader>
           <Star className="h-5 w-5 text-accent" />
@@ -100,6 +102,9 @@ export default function DealScorer() {
         </CardBody>
       </Card>
 
+      </CalcInputs>
+
+      <CalcResults>
       <Card gold>
         <CardBody>
           <div className="text-center">
@@ -150,6 +155,7 @@ export default function DealScorer() {
           ))}
         </CardBody>
       </Card>
-    </div>
+      </CalcResults>
+    </CalcGrid>
   )
 }

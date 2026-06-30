@@ -5,6 +5,7 @@ import { Calculator } from 'lucide-react'
 import Input from '@/components/ui/Input'
 import Select from '@/components/ui/Select'
 import { Card, CardHeader, CardBody, CardLabel, ResultRow } from '@/components/ui/Card'
+import { CalcGrid, CalcInputs, CalcResults } from '@/components/calculators/CalcLayout'
 import { calculateBorrowing, type Frequency } from '@/lib/calculators/borrowing'
 import { formatCurrency } from '@/lib/utils'
 
@@ -48,7 +49,8 @@ export default function BorrowingCalculator() {
   )
 
   return (
-    <div className="space-y-6 animate-children">
+    <CalcGrid>
+      <CalcInputs>
       <Card>
         <CardHeader>
           <Calculator className="h-5 w-5 text-accent" />
@@ -80,6 +82,9 @@ export default function BorrowingCalculator() {
         </CardBody>
       </Card>
 
+      </CalcInputs>
+
+      <CalcResults>
       <Card>
         <CardHeader>
           <CardLabel>Summary</CardLabel>
@@ -105,6 +110,7 @@ export default function BorrowingCalculator() {
           </div>
         </CardBody>
       </Card>
-    </div>
+      </CalcResults>
+    </CalcGrid>
   )
 }

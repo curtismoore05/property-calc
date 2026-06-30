@@ -5,6 +5,7 @@ import { PiggyBank } from 'lucide-react'
 import Input from '@/components/ui/Input'
 import { Card, CardHeader, CardBody, CardLabel, ResultRow } from '@/components/ui/Card'
 import { calculateOffset } from '@/lib/calculators/offsetAccount'
+import { CalcGrid, CalcInputs, CalcResults } from '@/components/calculators/CalcLayout'
 import { formatCurrency } from '@/lib/utils'
 
 export default function OffsetAccountCalculator() {
@@ -34,7 +35,8 @@ export default function OffsetAccountCalculator() {
     : '—'
 
   return (
-    <div className="space-y-6 animate-children">
+    <CalcGrid>
+      <CalcInputs>
       <Card>
         <CardHeader>
           <PiggyBank className="h-5 w-5 text-accent" />
@@ -49,7 +51,9 @@ export default function OffsetAccountCalculator() {
           </div>
         </CardBody>
       </Card>
+      </CalcInputs>
 
+      <CalcResults>
       {!r ? (
         <Card>
           <CardBody>
@@ -96,6 +100,7 @@ export default function OffsetAccountCalculator() {
           </Card>
         </>
       )}
-    </div>
+      </CalcResults>
+    </CalcGrid>
   )
 }

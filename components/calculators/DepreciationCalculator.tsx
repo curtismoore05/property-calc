@@ -6,6 +6,7 @@ import Input from '@/components/ui/Input'
 import Select from '@/components/ui/Select'
 import { Card, CardHeader, CardBody, CardLabel, ResultRow } from '@/components/ui/Card'
 import { calculateDepreciation, type DwellingType } from '@/lib/calculators/depreciation'
+import { CalcGrid, CalcInputs, CalcResults } from '@/components/calculators/CalcLayout'
 import { formatCurrency } from '@/lib/utils'
 
 const TYPE_OPTIONS = [
@@ -35,7 +36,8 @@ export default function DepreciationCalculator() {
   )
 
   return (
-    <div className="space-y-6 animate-children">
+    <CalcGrid>
+      <CalcInputs>
       <Card>
         <CardHeader>
           <ArrowDownRight className="h-5 w-5 text-accent" />
@@ -49,7 +51,9 @@ export default function DepreciationCalculator() {
           </div>
         </CardBody>
       </Card>
+      </CalcInputs>
 
+      <CalcResults>
       {!r ? (
         <Card>
           <CardBody>
@@ -83,6 +87,7 @@ export default function DepreciationCalculator() {
           </Card>
         </>
       )}
-    </div>
+      </CalcResults>
+    </CalcGrid>
   )
 }
