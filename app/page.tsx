@@ -4,6 +4,14 @@ import {
   PiggyBank, Receipt, ArrowDownRight, Map, Star,
   CheckCircle, Zap, Users, LayoutGrid,
 } from 'lucide-react'
+import { generateMetadata } from '@/lib/seo'
+
+export const metadata = generateMetadata({
+  title: 'Australian Property Calculators & Mortgage Tools',
+  description:
+    'Free Australian property investment calculators — stamp duty, borrowing, rental yield, cash flow, CGT, land tax and more. Make smarter decisions with instant analysis.',
+  path: '',
+})
 
 const calculators = [
   { icon: Building2,      name: 'Stamp Duty Calculator',       href: '/stamp-duty-calculator',        description: 'Calculate stamp duty and upfront costs by state' },
