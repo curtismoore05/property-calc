@@ -36,8 +36,8 @@ export default function Header() {
           <Image
             src="/logo.png"
             alt="Property Calc — smart numbers, better property decisions"
-            width={1133}
-            height={285}
+            width={1251}
+            height={307}
             priority
             className="h-10 w-auto sm:h-12"
           />
