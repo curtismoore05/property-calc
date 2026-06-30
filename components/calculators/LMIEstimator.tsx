@@ -7,6 +7,7 @@ import Select from '@/components/ui/Select'
 import { Card, CardHeader, CardBody, CardLabel, ResultRow } from '@/components/ui/Card'
 import { calculateLmi, type BorrowerType, type LoanPurpose } from '@/lib/calculators/lmi'
 import { CalcGrid, CalcInputs, CalcResults } from '@/components/calculators/CalcLayout'
+import Ticker from '@/components/ui/Ticker'
 import { formatCurrency } from '@/lib/utils'
 
 const PURPOSE_OPTIONS = [
@@ -94,7 +95,7 @@ export default function LMIEstimator() {
               <div className="text-center">
                 <CardLabel>Estimated LMI Premium</CardLabel>
                 <p className="monospace-numbers text-4xl sm:text-5xl font-extrabold text-accent mt-2">
-                  {formatCurrency(r.lmiPremium)}
+                  <Ticker value={r.lmiPremium} format={formatCurrency} />
                 </p>
                 {r.requiresLMI && (
                   <p className="text-sm text-muted-foreground mt-4">

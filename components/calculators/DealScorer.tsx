@@ -6,6 +6,7 @@ import Input from '@/components/ui/Input'
 import { Card, CardHeader, CardBody, CardLabel, ResultRow } from '@/components/ui/Card'
 import { calculatePropertyDeal, DEAL_DEFAULTS } from '@/lib/calculators/propertyDeal'
 import { CalcGrid, CalcInputs, CalcResults } from '@/components/calculators/CalcLayout'
+import Ticker from '@/components/ui/Ticker'
 import { formatCurrency, formatPercent } from '@/lib/utils'
 
 const RATING_COLOR: Record<string, string> = {
@@ -110,7 +111,7 @@ export default function DealScorer() {
           <div className="text-center">
             <CardLabel>Overall Deal Score</CardLabel>
             <p className="monospace-numbers text-6xl font-extrabold text-accent mt-2">
-              {Math.round(r.score)}
+              <Ticker value={r.score} format={(n) => String(Math.round(n))} />
               <span className="text-2xl text-muted-foreground">/100</span>
             </p>
             <p className={`text-xl font-bold mt-1 ${RATING_COLOR[r.rating]}`}>{r.rating}</p>

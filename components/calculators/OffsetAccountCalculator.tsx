@@ -6,6 +6,7 @@ import Input from '@/components/ui/Input'
 import { Card, CardHeader, CardBody, CardLabel, ResultRow } from '@/components/ui/Card'
 import { calculateOffset } from '@/lib/calculators/offsetAccount'
 import { CalcGrid, CalcInputs, CalcResults } from '@/components/calculators/CalcLayout'
+import Ticker from '@/components/ui/Ticker'
 import { formatCurrency } from '@/lib/utils'
 
 export default function OffsetAccountCalculator() {
@@ -70,7 +71,7 @@ export default function OffsetAccountCalculator() {
                 <div className="text-center">
                   <CardLabel>Interest Saved</CardLabel>
                   <p className="monospace-numbers text-3xl sm:text-4xl font-extrabold text-accent mt-2">
-                    {formatCurrency(r.interestSaved)}
+                    <Ticker value={r.interestSaved} format={formatCurrency} />
                   </p>
                 </div>
               </CardBody>

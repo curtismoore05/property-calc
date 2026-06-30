@@ -6,6 +6,7 @@ import Input from '@/components/ui/Input'
 import Select from '@/components/ui/Select'
 import { Card, CardHeader, CardBody, CardLabel, ResultRow } from '@/components/ui/Card'
 import { CalcGrid, CalcInputs, CalcResults } from '@/components/calculators/CalcLayout'
+import Ticker from '@/components/ui/Ticker'
 import {
   calculateStampDuty,
   STATE_OPTIONS,
@@ -115,7 +116,7 @@ export default function StampDutyCalculator() {
           <div className="text-center">
             <CardLabel>Total Upfront Costs</CardLabel>
             <p className="monospace-numbers text-4xl sm:text-5xl font-extrabold text-accent mt-2">
-              {formatCurrency(r.totalUpfront)}
+              <Ticker value={r.totalUpfront} format={formatCurrency} />
             </p>
           </div>
         </CardBody>

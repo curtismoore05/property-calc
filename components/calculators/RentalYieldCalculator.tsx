@@ -13,6 +13,7 @@ import {
 } from '@/lib/calculators/rentalYield'
 import { formatCurrency, formatPercent } from '@/lib/utils'
 import { CalcGrid, CalcInputs, CalcResults } from '@/components/calculators/CalcLayout'
+import Ticker from '@/components/ui/Ticker'
 
 const FREQUENCY_OPTIONS = [
   { value: 'weekly', label: 'per week' },
@@ -119,13 +120,13 @@ export default function RentalYieldCalculator() {
               <div className="rounded-xl border border-border p-4 text-center">
                 <CardLabel>Gross Yield</CardLabel>
                 <p className="monospace-numbers text-3xl font-bold text-accent mt-1">
-                  {formatPercent(result.grossYield, 2)}
+                  <Ticker value={result.grossYield} format={(n) => formatPercent(n, 2)} />
                 </p>
               </div>
               <div className="rounded-xl border border-border p-4 text-center">
                 <CardLabel>Net Yield</CardLabel>
                 <p className="monospace-numbers text-3xl font-bold text-accent mt-1">
-                  {formatPercent(result.netYield, 2)}
+                  <Ticker value={result.netYield} format={(n) => formatPercent(n, 2)} />
                 </p>
               </div>
             </div>

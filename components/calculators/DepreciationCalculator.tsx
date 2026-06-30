@@ -7,6 +7,7 @@ import Select from '@/components/ui/Select'
 import { Card, CardHeader, CardBody, CardLabel, ResultRow } from '@/components/ui/Card'
 import { calculateDepreciation, type DwellingType } from '@/lib/calculators/depreciation'
 import { CalcGrid, CalcInputs, CalcResults } from '@/components/calculators/CalcLayout'
+import Ticker from '@/components/ui/Ticker'
 import { formatCurrency } from '@/lib/utils'
 
 const TYPE_OPTIONS = [
@@ -69,7 +70,7 @@ export default function DepreciationCalculator() {
               <div className="text-center">
                 <CardLabel>First-Year Depreciation</CardLabel>
                 <p className="monospace-numbers text-4xl sm:text-5xl font-extrabold text-accent mt-2">
-                  {formatCurrency(r.year1Depreciation)}
+                  <Ticker value={r.year1Depreciation} format={formatCurrency} />
                 </p>
               </div>
             </CardBody>
