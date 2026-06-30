@@ -39,7 +39,7 @@ export default function Header() {
             width={1133}
             height={285}
             priority
-            className="h-8 w-auto sm:h-9"
+            className="h-10 w-auto sm:h-12"
           />
         </Link>
 
