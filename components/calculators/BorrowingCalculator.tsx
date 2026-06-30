@@ -48,7 +48,7 @@ export default function BorrowingCalculator() {
   )
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 animate-children">
       <Card>
         <CardHeader>
           <Calculator className="h-5 w-5 text-accent" />

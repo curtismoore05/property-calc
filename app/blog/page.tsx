@@ -3,23 +3,26 @@ import { getAllPosts } from '@/lib/blog'
 import BlogCard from '@/components/blog/BlogCard'
 
 export const metadata = genMeta({
-  title: 'Property Investment Insights',
+  title: 'Blog',
   description:
-    'Guides and articles on Australian property investment — stamp duty, negative gearing, depreciation, capital gains tax and more.',
+    'Property investment insights, tax updates, and market analysis for Australian investors.',
   path: '/blog',
 })
 
 export default function BlogPage() {
   const posts = getAllPosts()
   return (
-    <div className="max-w-3xl mx-auto px-4 py-12">
-      <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-        Property Investment Insights
-      </h1>
-      <p className="mt-3 text-muted-foreground">
-        Practical guides to help you make smarter property decisions.
-      </p>
-      <div className="mt-10 grid grid-cols-1 gap-6 animate-children">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+      <div className="mb-12">
+        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground leading-tight">
+          Property Investment Insights
+        </h1>
+        <p className="mt-4 text-lg text-muted-foreground leading-relaxed max-w-3xl">
+          Tax updates, legislative changes, market analysis, and practical advice for Australian
+          property investors.
+        </p>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-children">
         {posts.map((post) => (
           <BlogCard key={post.slug} post={post} />
         ))}

@@ -31,7 +31,7 @@ export default function LandTaxCalculator() {
   )
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 animate-children">
       <Card>
         <CardHeader>
           <Map className="h-5 w-5 text-accent" />

@@ -9,11 +9,15 @@ export interface PostMeta {
   title: string
   description: string
   date: string
+  author: string
+  featured: boolean
 }
 
 export interface Post extends PostMeta {
   content: string
 }
+
+const DEFAULT_AUTHOR = 'Curtis Surge Real Estate'
 
 function readPost(slug: string): Post {
   const raw = fs.readFileSync(path.join(BLOG_DIR, `${slug}.mdx`), 'utf8')
@@ -23,6 +27,8 @@ function readPost(slug: string): Post {
     title: data.title ?? slug,
     description: data.description ?? '',
     date: data.date ?? '',
+    author: data.author ?? DEFAULT_AUTHOR,
+    featured: data.featured ?? false,
     content,
   }
 }
@@ -40,7 +46,11 @@ export function getAllPosts(): PostMeta[] {
       const { content: _content, ...meta } = readPost(slug)
       return meta
     })
-    .sort((a, b) => (a.date < b.date ? 1 : -1))
+    // Featured first, then newest to oldest.
+    .sort((a, b) => {
+      if (a.featured !== b.featured) return a.featured ? -1 : 1
+      return a.date < b.date ? 1 : -1
+    })
 }
 
 export function getPost(slug: string): Post {
