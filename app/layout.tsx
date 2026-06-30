@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { DM_Sans } from 'next/font/google'
 import './globals.css'
+import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -13,15 +15,13 @@ export const metadata: Metadata = {
     'Free Australian property calculators and mortgage tools for investors and home buyers.',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={dmSans.variable}>
-      <body className="bg-background text-foreground font-sans antialiased">
-        {children}
+      <body className="flex flex-col min-h-screen bg-background text-foreground font-sans antialiased">
+        <Header />
+        <main className="flex-grow pt-16">{children}</main>
+        <Footer />
       </body>
     </html>
   )
