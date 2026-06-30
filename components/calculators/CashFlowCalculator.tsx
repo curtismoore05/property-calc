@@ -6,6 +6,7 @@ import Input from '@/components/ui/Input'
 import Select from '@/components/ui/Select'
 import { Card, CardHeader, CardBody, CardLabel, ResultRow } from '@/components/ui/Card'
 import { calculatePropertyDeal, DEAL_DEFAULTS } from '@/lib/calculators/propertyDeal'
+import { CalcGrid, CalcInputs, CalcResults } from '@/components/calculators/CalcLayout'
 import { formatCurrency, formatPercent } from '@/lib/utils'
 
 export default function CashFlowCalculator() {
@@ -58,7 +59,8 @@ export default function CashFlowCalculator() {
   const weekly = (annual: number) => annual / 52
 
   return (
-    <div className="space-y-6 animate-children">
+    <CalcGrid>
+      <CalcInputs>
       <Card>
         <CardHeader>
           <BarChart3 className="h-5 w-5 text-accent" />
@@ -101,6 +103,9 @@ export default function CashFlowCalculator() {
         </CardBody>
       </Card>
 
+      </CalcInputs>
+
+      <CalcResults>
       <Card>
         <CardHeader>
           <CardLabel>Cash Flow</CardLabel>
@@ -129,6 +134,7 @@ export default function CashFlowCalculator() {
           </div>
         </CardBody>
       </Card>
-    </div>
+      </CalcResults>
+    </CalcGrid>
   )
 }

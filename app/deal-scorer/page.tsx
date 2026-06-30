@@ -10,9 +10,9 @@ export const metadata = generateMetadata({
 
 export default function DealScorerPage() {
   return (
-    <div className="max-w-2xl mx-auto px-4 py-8">
+    <div className="max-w-5xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold tracking-tight text-foreground">Deal Scorer</h1>
-      <p className="mt-2 text-sm text-muted-foreground">
+      <p className="mt-2 text-sm text-muted-foreground max-w-2xl">
         Get an at-a-glance score out of 100 for an investment property, weighing yield, cash flow,
         your personal buffer, debt coverage and expected capital growth.
       </p>

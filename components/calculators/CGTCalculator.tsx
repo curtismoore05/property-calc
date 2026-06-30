@@ -6,6 +6,7 @@ import Input from '@/components/ui/Input'
 import Select from '@/components/ui/Select'
 import { Card, CardHeader, CardBody, CardLabel, ResultRow } from '@/components/ui/Card'
 import { calculateCgt, type AssetType } from '@/lib/calculators/cgt'
+import { CalcGrid, CalcInputs, CalcResults } from '@/components/calculators/CalcLayout'
 import { formatCurrency, formatPercent } from '@/lib/utils'
 
 const ASSET_OPTIONS = [
@@ -46,7 +47,8 @@ export default function CGTCalculator() {
   )
 
   return (
-    <div className="space-y-6 animate-children">
+    <CalcGrid>
+      <CalcInputs>
       <Card>
         <CardHeader>
           <Receipt className="h-5 w-5 text-accent" />
@@ -69,7 +71,9 @@ export default function CGTCalculator() {
           </div>
         </CardBody>
       </Card>
+      </CalcInputs>
 
+      <CalcResults>
       {!r ? (
         <Card>
           <CardBody>
@@ -109,6 +113,7 @@ export default function CGTCalculator() {
           </Card>
         </>
       )}
-    </div>
+      </CalcResults>
+    </CalcGrid>
   )
 }

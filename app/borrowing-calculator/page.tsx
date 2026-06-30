@@ -10,9 +10,9 @@ export const metadata = generateMetadata({
 
 export default function BorrowingPage() {
   return (
-    <div className="max-w-2xl mx-auto px-4 py-8">
+    <div className="max-w-5xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold tracking-tight text-foreground">Borrowing Calculator</h1>
-      <p className="mt-2 text-sm text-muted-foreground">
+      <p className="mt-2 text-sm text-muted-foreground max-w-2xl">
         Estimate how much you could borrow based on your household income and ongoing commitments.
         This is a guide only — lenders assess your situation in more detail.
       </p>

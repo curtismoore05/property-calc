@@ -6,6 +6,7 @@ import Input from '@/components/ui/Input'
 import Select from '@/components/ui/Select'
 import { Card, CardHeader, CardBody, CardLabel, ResultRow } from '@/components/ui/Card'
 import { calculateLmi, type BorrowerType, type LoanPurpose } from '@/lib/calculators/lmi'
+import { CalcGrid, CalcInputs, CalcResults } from '@/components/calculators/CalcLayout'
 import { formatCurrency } from '@/lib/utils'
 
 const PURPOSE_OPTIONS = [
@@ -40,7 +41,8 @@ export default function LMIEstimator() {
   )
 
   return (
-    <div className="space-y-6 animate-children">
+    <CalcGrid>
+      <CalcInputs>
       <Card>
         <CardHeader>
           <Shield className="h-5 w-5 text-accent" />
@@ -55,7 +57,9 @@ export default function LMIEstimator() {
           </div>
         </CardBody>
       </Card>
+      </CalcInputs>
 
+      <CalcResults>
       {!r ? (
         <Card>
           <CardBody>
@@ -103,6 +107,7 @@ export default function LMIEstimator() {
           </Card>
         </>
       )}
-    </div>
+      </CalcResults>
+    </CalcGrid>
   )
 }

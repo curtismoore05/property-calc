@@ -41,7 +41,7 @@ export default function Home() {
     <>
       {/* Hero */}
       <section
-        className="relative flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 py-20 overflow-hidden"
+        className="relative flex min-h-[68vh] items-center justify-center px-4 py-20 lg:py-24 overflow-hidden"
         style={{
           backgroundImage: `
             linear-gradient(to bottom, hsl(225 50% 8% / 0.97), hsl(225 50% 8% / 0.99)),
@@ -51,18 +51,32 @@ export default function Home() {
         }}
       >
         <div className="text-center">
-          <h1 className="max-w-5xl mx-auto text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-tight">
+          <h1 className="max-w-5xl mx-auto text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-tight">
             Australian Property Calculators &amp; Mortgage Tools for Investors &amp; Buyers
           </h1>
           <p className="max-w-3xl mx-auto mt-6 text-lg text-muted-foreground">
             Free Australian property investment calculators. Make smarter decisions with instant
             tax, cash flow, and deal analysis.
           </p>
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="#calculators"
+              className="inline-flex h-11 items-center justify-center rounded-md bg-accent px-6 text-sm font-medium text-accent-foreground shadow hover:bg-accent/90 transition-all duration-200 active:scale-[0.98]"
+            >
+              Explore the calculators
+            </a>
+            <Link
+              href="/book-a-call"
+              className="inline-flex h-11 items-center justify-center rounded-md border border-accent px-6 text-sm font-medium text-accent hover:bg-accent/10 transition-colors duration-200"
+            >
+              Book a Call
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Calculator Grid */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+      <section id="calculators" className="scroll-mt-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-children">
           {calculators.map((calc) => {
             const Icon = calc.icon
