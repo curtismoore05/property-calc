@@ -132,6 +132,17 @@ SEO is not an afterthought on this project.
 - URL slugs are keyword-relevant (e.g. `/stamp-duty-calculator`)
 - All routes must be included in the sitemap (next-sitemap config)
 - Never render indexable content client-side only — calculator results can be client-side but page content/headings must be server-rendered
+- Blog posts emit **BlogPosting JSON-LD** (`lib/schema.ts`) and `og:type=article` with `publishedTime`/`author`
+- `public/og-image.png` (1200×630) is the default social card; referenced by `lib/seo.ts`
+
+## Blog authoring (MDX)
+
+Articles live in `content/blog/*.mdx` (frontmatter: `title`, `description`, `date`, `author`, `featured`). Rendered via `next-mdx-remote/rsc` + `remark-gfm` with styled element mappings in `app/blog/[slug]/page.tsx`. Two custom components are available inside MDX for richer, source-matching layouts:
+
+- `<Section icon="scale|shield|building2|globe" title="...">…</Section>` — a titled section with a leading accent icon.
+- `<InfoCard title="...">…</InfoCard>` — a highlighted callout card (e.g. "Impact on Different Investor Types").
+
+The article body (`.blog-body`) uses `.animate-children` so sections stagger in on load, like the rest of the site.
 
 ---
 
