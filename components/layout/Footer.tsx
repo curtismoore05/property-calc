@@ -57,7 +57,7 @@ export default function Footer() {
                 alt="Property Calc — smart numbers, better property decisions"
                 width={1251}
                 height={307}
-                className="h-14 w-auto"
+                className="h-14 w-auto py-0.5"
               />
             </Link>
             <p className="text-sm text-foreground/80">Every number you need before you buy</p>

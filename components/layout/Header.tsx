@@ -39,7 +39,7 @@ export default function Header() {
             width={1251}
             height={307}
             priority
-            className="h-10 w-auto sm:h-12"
+            className="h-10 w-auto sm:h-12 py-0.5"
           />
         </Link>
 
