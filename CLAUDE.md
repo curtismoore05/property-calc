@@ -30,9 +30,12 @@ npm run lint     # ESLint
 
 ## Build Status
 
-- ✅ Builds cleanly (`output: 'export'`).
-- ✅ **Built:** global shell (Header, Footer, layout), Home, UI primitives (`Button`, `Card`, `Input`, `Select`), `lib/utils.ts` (`cn`/`formatCurrency`/`formatPercent`), legal + book-a-call pages, and the **Rental Yield calculator** (logic + component + page).
-- 🚧 **Stubs (not built):** the other 9 calculators and their `lib/calculators/*` logic, plus About / Contact / Blog pages. The tax-table calculators (stamp duty, land tax, CGT, depreciation) need verified source rate data before implementation.
+- ✅ Builds cleanly (`output: 'export'`); 29 static pages.
+- ✅ **All 10 calculators built** (logic in `lib/calculators/*` ported from the live site, real-time client components, SEO pages). Cash Flow + Deal Scorer share `lib/calculators/propertyDeal.ts`.
+- ✅ **Content pages:** Home, Blog (list + MDX articles via `next-mdx-remote/rsc` + `remark-gfm`, 6 posts in `content/blog`), About, Contact (mailto form), legal + book-a-call.
+- ✅ **Branding/polish:** logo (header/footer) + favicon (`app/icon.png`/`apple-icon.png`/`favicon.ico`); page fade + staggered section load-in (`RouteTransition`, `.animate-children`); two-column calculator layout (`components/calculators/CalcLayout.tsx`); split-flap odometer on result numbers (`components/ui/Ticker.tsx`).
+- ⚠️ **Rates are estimates** and some are out of date / simplified — see [docs/RATE-REVIEW.md](docs/RATE-REVIEW.md) before launch (notably CGT brackets + discount).
+- 🚧 **Not done (optional):** Recharts charts for offset/cash-flow/deal-scorer (data exists, shown as tables); real contact email (placeholder in `components/ContactForm.tsx`).
 
 ## File Structure
 
