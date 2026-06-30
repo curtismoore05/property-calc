@@ -6,6 +6,7 @@ import Input from '@/components/ui/Input'
 import Select from '@/components/ui/Select'
 import { Card, CardHeader, CardBody, CardLabel, ResultRow } from '@/components/ui/Card'
 import { CalcGrid, CalcInputs, CalcResults } from '@/components/calculators/CalcLayout'
+import Ticker from '@/components/ui/Ticker'
 import { calculateBorrowing, type Frequency } from '@/lib/calculators/borrowing'
 import { formatCurrency } from '@/lib/utils'
 
@@ -102,7 +103,7 @@ export default function BorrowingCalculator() {
           <div className="text-center">
             <CardLabel>Estimated Borrowing Capacity</CardLabel>
             <p className="monospace-numbers text-4xl sm:text-5xl font-extrabold text-accent mt-2">
-              {formatCurrency(r.borrowingCapacity)}
+              <Ticker value={r.borrowingCapacity} format={formatCurrency} />
             </p>
             <p className="text-xs text-muted-foreground mt-3">
               Based on standard lending criteria: typically 6–8× net annual income.

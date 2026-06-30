@@ -9,6 +9,7 @@ import { calculateLandTax, type OwnerType } from '@/lib/calculators/landTax'
 import { STATE_OPTIONS, type StateCode } from '@/lib/calculators/stampDuty'
 import { formatCurrency, formatPercent } from '@/lib/utils'
 import { CalcGrid, CalcInputs, CalcResults } from '@/components/calculators/CalcLayout'
+import Ticker from '@/components/ui/Ticker'
 
 const OWNER_OPTIONS = [
   { value: 'Individual', label: 'Individual' },
@@ -82,7 +83,7 @@ export default function LandTaxCalculator() {
               <div className="text-center">
                 <CardLabel>Estimated Annual Land Tax</CardLabel>
                 <p className="monospace-numbers text-4xl sm:text-5xl font-extrabold text-accent mt-2">
-                  {formatCurrency(r.tax)}
+                  <Ticker value={r.tax} format={formatCurrency} />
                 </p>
                 {state === 'NT' && (
                   <p className="text-sm text-muted-foreground mt-3">

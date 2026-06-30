@@ -7,6 +7,7 @@ import Select from '@/components/ui/Select'
 import { Card, CardHeader, CardBody, CardLabel, ResultRow } from '@/components/ui/Card'
 import { calculatePropertyDeal, DEAL_DEFAULTS } from '@/lib/calculators/propertyDeal'
 import { CalcGrid, CalcInputs, CalcResults } from '@/components/calculators/CalcLayout'
+import Ticker from '@/components/ui/Ticker'
 import { formatCurrency, formatPercent } from '@/lib/utils'
 
 export default function CashFlowCalculator() {
@@ -126,7 +127,7 @@ export default function CashFlowCalculator() {
           <div className="text-center">
             <CardLabel>After-Tax Cash Flow (annual)</CardLabel>
             <p className={`monospace-numbers text-4xl sm:text-5xl font-extrabold mt-2 ${r.afterTaxCashFlow >= 0 ? 'text-accent' : 'text-destructive'}`}>
-              {formatCurrency(r.afterTaxCashFlow)}
+              <Ticker value={r.afterTaxCashFlow} format={formatCurrency} />
             </p>
             <p className="text-sm text-muted-foreground mt-2">
               {r.afterTaxCashFlow >= 0 ? 'Positively geared' : 'Negatively geared — requires holding power'}

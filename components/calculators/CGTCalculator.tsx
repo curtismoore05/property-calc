@@ -7,6 +7,7 @@ import Select from '@/components/ui/Select'
 import { Card, CardHeader, CardBody, CardLabel, ResultRow } from '@/components/ui/Card'
 import { calculateCgt, type AssetType } from '@/lib/calculators/cgt'
 import { CalcGrid, CalcInputs, CalcResults } from '@/components/calculators/CalcLayout'
+import Ticker from '@/components/ui/Ticker'
 import { formatCurrency, formatPercent } from '@/lib/utils'
 
 const ASSET_OPTIONS = [
@@ -106,7 +107,7 @@ export default function CGTCalculator() {
               <div className="text-center">
                 <CardLabel>Estimated CGT Payable</CardLabel>
                 <p className="monospace-numbers text-4xl sm:text-5xl font-extrabold text-accent mt-2">
-                  {formatCurrency(r.taxPayable)}
+                  <Ticker value={r.taxPayable} format={formatCurrency} />
                 </p>
               </div>
             </CardBody>
