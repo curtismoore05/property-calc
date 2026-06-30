@@ -3,6 +3,7 @@ import { DM_Sans } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import RouteTransition from '@/components/layout/RouteTransition'
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
@@ -23,7 +24,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={dmSans.variable}>
       <body className="flex flex-col min-h-screen bg-background text-foreground font-sans antialiased">
         <Header />
-        <main className="flex-grow pt-16">{children}</main>
+        <main className="flex-grow pt-16">
+          <RouteTransition>{children}</RouteTransition>
+        </main>
         <Footer />
       </body>
     </html>
