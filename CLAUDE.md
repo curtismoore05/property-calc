@@ -99,6 +99,22 @@ All colors use HSL CSS variables defined in `globals.css`:
 
 ---
 
+## Non-Negotiable Design Rules
+
+Extracted from computed browser styles of the source site. Apply to every component, every page, every PR.
+
+1. **Gold buttons = dark text** — `bg-accent` buttons always use `text-accent-foreground` (navy `#0a0f1f`). Never white text on gold.
+2. **Numbers = Courier New** — every currency/numeric output uses `.monospace-numbers` class. Never DM Sans for dollar values.
+3. **H1/H2 = `tracking-tight`** — negative letter-spacing on all H1 and H2. H3 and below: normal tracking.
+4. **One border color** — `border-border` (`#242b42`) everywhere. Only exception: total result card uses `border-2 border-accent` (2px gold).
+5. **Ghosted icons are intentional** — `text-primary` (navy) on dark cards produces a barely-visible ghost. Do not change to gold/white.
+
+## Per-Page SEO Rule
+
+Every page built must have both:
+1. `export const metadata = generateMetadata({ title, description, path })` from `lib/seo.ts`
+2. Sitemap auto-generates at build time via `postbuild` script — no manual entry needed
+
 ## SEO — Primary Concern
 
 SEO is not an afterthought on this project.

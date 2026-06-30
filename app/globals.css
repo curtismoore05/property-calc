@@ -3,23 +3,39 @@
 @tailwind utilities;
 
 :root {
-  --background: 225 50% 8%;
-  --foreground: 210 40% 96%;
-  --card: 225 40% 12%;
-  --card-foreground: 210 40% 96%;
-  --border: 225 30% 20%;
-  --input: 225 30% 16%;
-  --muted: 225 30% 16%;
-  --muted-foreground: 215 20% 70%;
-  --accent: 41 61% 55%;
+  /* Named primitives */
+  --navy: 225 50% 8%;
   --gold: 41 61% 55%;
-  --accent-foreground: 225 50% 8%;
-  --primary: 225 50% 8%;
-  --primary-foreground: 210 40% 96%;
-  --secondary: 225 30% 16%;
+
+  /* Semantic tokens — direct HSL values for Tailwind alpha-value compatibility */
+  --background:           225 50% 8%;    /* #0a0f1f */
+  --foreground:           210 40% 96%;   /* #f1f5f9 */
+
+  --card:                 225 40% 12%;   /* #12182b */
+  --card-foreground:      210 40% 96%;
+
+  --popover:              225 40% 12%;
+  --popover-foreground:   210 40% 96%;
+
+  --primary:              225 50% 8%;    /* navy — bg-primary/10 = barely-visible dark square */
+  --primary-foreground:   210 40% 96%;
+
+  --secondary:            225 30% 16%;   /* #1d2335 — inputs, secondary surfaces */
   --secondary-foreground: 210 40% 96%;
-  --destructive: 0 84% 60%;
-  --ring: 41 61% 55%;
+
+  --muted:                225 30% 16%;   /* #1d2335 */
+  --muted-foreground:     215 20% 70%;   /* #a3b0c2 */
+
+  --accent:               41 61% 55%;    /* #d2a646 gold */
+  --accent-foreground:    225 50% 8%;    /* navy — text on gold buttons must be DARK */
+
+  --destructive:          0 84% 60%;
+  --destructive-foreground: 210 40% 96%;
+
+  --border:               225 30% 20%;   /* #242b42 — ALL borders use this, no exceptions */
+  --input:                225 30% 16%;   /* #1d2335 */
+  --ring:                 41 61% 55%;    /* gold focus rings */
+
   --radius: 0.5rem;
 }
 
@@ -27,4 +43,47 @@ body {
   color: hsl(var(--foreground));
   background: hsl(var(--background));
   font-family: var(--font-dm-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* All numeric/currency outputs use monospace with tabular numbers */
+.monospace-numbers {
+  font-family: "Courier New", Courier, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Inline gold pill — e.g. percentage display inside a form */
+.gold-highlight {
+  font-family: "Courier New", Courier, monospace;
+  font-variant-numeric: tabular-nums;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-radius: var(--radius);
+  background-color: hsl(var(--accent) / 0.1);
+  padding: 0.375rem 0.75rem;
+  font-weight: 700;
+  color: hsl(var(--accent));
+}
+
+/* Navy "Book a Call" button — turns gold on hover */
+.btn-gold-hover:hover {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+/* Result display panels */
+.result-card {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: 1rem;
+  border-width: 1px;
+  padding: 1.25rem;
 }

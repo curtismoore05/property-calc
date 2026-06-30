@@ -17,56 +17,53 @@ const legalLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-background border-t border-border">
-      {/* Newsletter */}
-      <div className="max-w-screen-xl mx-auto px-4 py-8 border-b border-border">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-          <div className="flex items-center gap-2 shrink-0">
-            <Mail className="w-5 h-5 text-accent" />
-            <span className="text-sm font-medium text-foreground">
-              Get property investment tips delivered to your inbox
-            </span>
+    <footer className="bg-secondary mt-20">
+      {/* Newsletter band — slightly darker than outer */}
+      <div className="bg-card border-t border-b border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div className="flex items-center gap-2 shrink-0">
+              <Mail className="w-5 h-5 text-accent" />
+              <span className="text-sm font-medium text-foreground">
+                Get property investment tips delivered to your inbox
+              </span>
+            </div>
+            <form className="flex gap-2 w-full sm:max-w-sm">
+              <input
+                type="email"
+                placeholder="Your email address"
+                className="flex h-9 flex-1 rounded-md border border-border bg-input px-3 py-1 text-sm text-white placeholder:text-muted-foreground shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent transition-colors"
+              />
+              <button
+                type="submit"
+                className="inline-flex h-9 items-center justify-center rounded-md bg-accent px-4 text-sm font-medium text-accent-foreground shadow hover:bg-accent/90 transition-all duration-200 active:scale-[0.98] shrink-0"
+              >
+                Subscribe
+              </button>
+            </form>
           </div>
-          <form className="flex gap-2 w-full sm:max-w-sm">
-            <input
-              type="email"
-              placeholder="Your email address"
-              className="flex-1 bg-input text-foreground rounded border border-border px-3 py-2 text-sm outline-none focus:border-ring placeholder:text-muted-foreground"
-            />
-            <button
-              type="submit"
-              className="bg-accent text-accent-foreground px-4 py-2 rounded text-sm font-medium hover:bg-accent/90 transition-colors shrink-0"
-            >
-              Subscribe
-            </button>
-          </form>
         </div>
       </div>
 
       {/* Links */}
-      <div className="max-w-screen-xl mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div className="flex flex-col gap-2">
             <Link href="/" className="flex items-center gap-2">
               <Calculator className="w-5 h-5 text-accent" />
-              <span className="font-bold text-foreground">Property Calc</span>
+              <span className="text-xl font-bold text-foreground">Property Calc</span>
             </Link>
-            <p className="text-sm text-muted-foreground">Every number you need before you buy</p>
+            <p className="text-sm text-foreground/80">Every number you need before you buy</p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-3">
-              Quick Links
-            </p>
+            <span className="font-semibold text-foreground block mb-4">Quick Links</span>
             <ul className="flex flex-col gap-2">
               {quickLinks.map((l) => (
                 <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    className="text-sm text-foreground/70 hover:text-foreground transition-colors"
-                  >
+                  <Link href={l.href} className="text-sm text-foreground/80 hover:opacity-100 transition-opacity">
                     {l.name}
                   </Link>
                 </li>
@@ -76,16 +73,11 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-3">
-              Legal
-            </p>
+            <span className="font-semibold text-foreground block mb-4">Legal</span>
             <ul className="flex flex-col gap-2">
               {legalLinks.map((l) => (
                 <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    className="text-sm text-foreground/70 hover:text-foreground transition-colors"
-                  >
+                  <Link href={l.href} className="text-sm text-foreground/80 hover:opacity-100 transition-opacity">
                     {l.name}
                   </Link>
                 </li>
@@ -96,9 +88,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="mt-8 pt-4 border-t border-border">
-          <p className="text-xs text-muted-foreground">
-            © 2026 Property Calc. All rights reserved.
-          </p>
+          <p className="text-sm text-foreground/80">© 2026 Property Calc. All rights reserved.</p>
         </div>
       </div>
     </footer>
