@@ -10,53 +10,59 @@ Rebuild of [realestatecalculators.com.au](https://realestatecalculators.com.au) 
 - **Styling:** Tailwind CSS with custom dark theme (CSS variables)
 - **Font:** DM Sans via `next/font/google`
 - **Icons:** Lucide React
-- **Charts:** Recharts (offset calculator)
+- **Charts:** Recharts (offset + deal-scorer) — _not yet installed; add `recharts` when building those calculators_
 - **Content:** MDX via next-mdx-remote (blog)
 - **SEO:** next-seo (per-page metadata) + next-sitemap (sitemap generation)
 - **Booking:** Calendly inline embed
 - **Language:** TypeScript
 
+> **Site URL:** defaults to `https://realestatecalculators.com.au`; override with the `NEXT_PUBLIC_SITE_URL` env var (used by `lib/seo.ts`, `app/layout.tsx`, and `next-sitemap.config.js`).
+
 ## Dev
 
 ```bash
 npm run dev      # starts on :3000 (or next available port)
-npm run build    # production build
+npm run build    # production build (static export to /out) + sitemap
 npm run lint     # ESLint
 ```
+
+> **Note:** don't run `npm run build` while `npm run dev` is running — they share the `.next` cache and the build will break the dev server (`MODULE_NOT_FOUND`). Stop dev first, or `rm -rf .next` and restart.
+
+## Build Status
+
+- ✅ Builds cleanly (`output: 'export'`).
+- ✅ **Built:** global shell (Header, Footer, layout), Home, UI primitives (`Button`, `Card`, `Input`, `Select`), `lib/utils.ts` (`cn`/`formatCurrency`/`formatPercent`), legal + book-a-call pages, and the **Rental Yield calculator** (logic + component + page).
+- 🚧 **Stubs (not built):** the other 9 calculators and their `lib/calculators/*` logic, plus About / Contact / Blog pages. The tax-table calculators (stamp duty, land tax, CGT, depreciation) need verified source rate data before implementation.
 
 ## File Structure
 
 ```
 app/
-  layout.tsx                    # Root layout — Navbar + Footer + font
+  layout.tsx                    # Root layout — Header + Footer + font + metadataBase
+  globals.css                   # Tailwind layers + HSL design tokens
   page.tsx                      # Home (/)
-  stamp-duty-calculator/page.tsx
-  borrowing-calculator/page.tsx
-  rental-yield-calculator/page.tsx
-  cashflow-calculator/page.tsx
-  lmi-estimator/page.tsx
-  offset-account-calculator/page.tsx
-  cgt-calculator/page.tsx
-  depreciation-calculator/page.tsx
-  land-tax-calculator/page.tsx
-  deal-scorer/page.tsx
+  <calculator>/page.tsx         # one folder per calculator route (server page: metadata + h1)
   blog/page.tsx
-  about/page.tsx
-  contact/page.tsx
-  book-a-call/page.tsx
+  blog/[slug]/page.tsx          # generateStaticParams from content/blog
+  about/ contact/ book-a-call/  # page.tsx each
+  privacy-policy/ terms-of-service/  # page.tsx each
 components/
-  Navbar.tsx
-  Footer.tsx
-  CalculatorCard.tsx
+  layout/    Header.tsx  Footer.tsx
+  ui/        Button.tsx  Card.tsx  Input.tsx  Select.tsx
+  calculators/  <Name>Calculator.tsx   # client components (mostly stubs)
+  blog/      BlogCard.tsx
 lib/
-  calculators/
-    stampDuty.ts      # all 8 state rate tables
-    landTax.ts        # all 8 state rate tables
-    lmi.ts
-    offset.ts
-    cgt.ts
-    depreciation.ts
+  seo.ts                        # generateMetadata() helper
+  utils.ts                      # cn(), formatCurrency(), formatPercent()
+  schema.ts                     # (placeholder)
+  calculators/                  # pure logic per calculator (mostly placeholders)
+    rentalYield.ts              # ✅ implemented
+    stampDuty.ts  landTax.ts  lmi.ts  offsetAccount.ts  cgt.ts
+    depreciation.ts  borrowing.ts  cashFlow.ts  dealScorer.ts
+content/blog/*.mdx              # blog posts
 ```
+
+Path alias: `@/*` → repo root (see `tsconfig.json`).
 
 ---
 
