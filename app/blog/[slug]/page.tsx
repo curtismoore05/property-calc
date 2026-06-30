@@ -4,8 +4,6 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import { generateMetadata as genMeta } from '@/lib/seo'
 import { getAllSlugs, getPost, formatDate } from '@/lib/blog'
 
-const AUTHOR = 'Curtis Moore'
-
 export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }))
 }
@@ -37,7 +35,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         Back to blog
       </Link>
       <p className="mt-6 text-sm text-muted-foreground">
-        {formatDate(post.date)} · {AUTHOR}
+        {formatDate(post.date)} · {post.author}
       </p>
       <h1 className="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-foreground">{post.title}</h1>
       <p className="mt-3 text-lg text-muted-foreground">{post.description}</p>
