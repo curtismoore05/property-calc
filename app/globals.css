@@ -3,11 +3,28 @@
 @tailwind utilities;
 
 :root {
-  --background: rgb(10, 15, 31);
-  --foreground: rgb(241, 245, 249);
+  --background: 225 50% 8%;
+  --foreground: 210 40% 96%;
+  --card: 225 40% 12%;
+  --card-foreground: 210 40% 96%;
+  --border: 225 30% 20%;
+  --input: 225 30% 16%;
+  --muted: 225 30% 16%;
+  --muted-foreground: 215 20% 70%;
+  --accent: 41 61% 55%;
+  --gold: 41 61% 55%;
+  --accent-foreground: 225 50% 8%;
+  --primary: 225 50% 8%;
+  --primary-foreground: 210 40% 96%;
+  --secondary: 225 30% 16%;
+  --secondary-foreground: 210 40% 96%;
+  --destructive: 0 84% 60%;
+  --ring: 41 61% 55%;
+  --radius: 0.5rem;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: hsl(var(--foreground));
+  background: hsl(var(--background));
+  font-family: var(--font-dm-sans), sans-serif;
 }
