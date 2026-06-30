@@ -2,7 +2,7 @@ import Link from 'next/link'
 import {
   Building2, Calculator, TrendingUp, BarChart3, Shield,
   PiggyBank, Receipt, ArrowDownRight, Map, Star,
-  CheckCircle, Zap, Users,
+  CheckCircle, Zap, Users, LayoutGrid,
 } from 'lucide-react'
 
 const calculators = [
@@ -88,24 +88,26 @@ export default function Home() {
 
       {/* Why Use Property Calc */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground text-center mb-12">
           Why use Property Calc
         </h2>
         <div className="flex flex-col space-y-16">
-          {features.map((f) => {
+          {features.map((f, i) => {
             const Icon = f.icon
+            const flip = i % 2 === 1  // even features: text right, visual left
             return (
               <div key={f.title} className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                {/* Text side */}
-                <div>
+                {/* Text side — alternates order on desktop */}
+                <div className={flip ? 'md:order-2' : ''}>
                   <div className="p-3 bg-primary/10 rounded-xl w-fit mb-4">
                     <Icon className="h-8 w-8 text-primary" />
                   </div>
                   <h3 className="text-2xl font-semibold text-foreground">{f.title}</h3>
-                  <p className="mt-2 text-lg text-muted-foreground">{f.description}</p>
+                  {/* Description is gold per source site */}
+                  <p className="mt-2 text-lg text-accent">{f.description}</p>
                 </div>
-                {/* Visual side — decorative placeholder */}
-                <div className="bg-muted/50 rounded-2xl p-8 h-64 flex items-center justify-center">
+                {/* Visual side — alternates order on desktop */}
+                <div className={`bg-muted/50 rounded-2xl p-8 h-64 flex items-center justify-center ${flip ? 'md:order-1' : ''}`}>
                   <Icon className="h-32 w-32 text-primary/20" />
                 </div>
               </div>

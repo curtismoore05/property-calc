@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Calculator, Mail } from 'lucide-react'
+import { LayoutGrid, Mail } from 'lucide-react'
 
 const quickLinks = [
   { name: 'CGT Calculator', href: '/cgt-calculator' },
@@ -51,7 +51,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="flex flex-col gap-2">
             <Link href="/" className="flex items-center gap-2">
-              <Calculator className="w-5 h-5 text-accent" />
+              <LayoutGrid className="w-5 h-5 text-accent" />
               <span className="text-xl font-bold text-foreground">Property Calc</span>
             </Link>
             <p className="text-sm text-foreground/80">Every number you need before you buy</p>
