@@ -1,0 +1,3 @@
+﻿// depreciation — placeholder
+export {}
+

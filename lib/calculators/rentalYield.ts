@@ -1,0 +1,3 @@
+﻿// rentalYield — placeholder
+export {}
+
