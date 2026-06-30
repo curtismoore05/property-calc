@@ -9,7 +9,10 @@ const dmSans = DM_Sans({
   variable: '--font-dm-sans',
 })
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://realestatecalculators.com.au'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: 'Property Calc — Every number you need before you buy',
   description:
     'Free Australian property calculators and mortgage tools for investors and home buyers.',

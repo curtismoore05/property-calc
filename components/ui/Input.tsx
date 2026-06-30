@@ -1,7 +1,7 @@
 import { InputHTMLAttributes, ReactNode } from 'react'
 import { clsx } from 'clsx'
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'prefix'> {
   label?: string
   prefix?: ReactNode
   suffix?: ReactNode
