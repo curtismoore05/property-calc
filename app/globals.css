@@ -93,7 +93,8 @@ body {
   font-size: 1.25rem;
   line-height: 1.6;
   font-weight: 500;
-  color: hsl(var(--foreground));
+  color: hsl(var(--muted-foreground));
+  max-width: 65ch;
   margin-bottom: 2rem;
 }
 
