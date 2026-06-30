@@ -2,7 +2,8 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { LayoutGrid, Menu, X, ChevronDown } from 'lucide-react'
+import Image from 'next/image'
+import { Menu, X, ChevronDown } from 'lucide-react'
 
 const calculators = [
   { name: 'Stamp Duty Calculator', href: '/stamp-duty-calculator' },
@@ -31,9 +32,15 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="max-w-screen-xl mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 shrink-0">
-          <LayoutGrid className="w-5 h-5 text-accent" />
-          <span className="font-bold text-foreground">Property Calc</span>
+        <Link href="/" className="flex items-center shrink-0" aria-label="Property Calc home">
+          <Image
+            src="/logo.png"
+            alt="Property Calc — smart numbers, better property decisions"
+            width={1251}
+            height={307}
+            priority
+            className="h-10 w-auto sm:h-12 py-0.5"
+          />
         </Link>
 
         {/* Desktop nav */}
