@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { LayoutGrid, Mail } from 'lucide-react'
+import Image from 'next/image'
+import { Mail } from 'lucide-react'
 
 const quickLinks = [
   { name: 'CGT Calculator', href: '/cgt-calculator' },
@@ -50,9 +51,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div className="flex flex-col gap-2">
-            <Link href="/" className="flex items-center gap-2">
-              <LayoutGrid className="w-5 h-5 text-accent" />
-              <span className="text-xl font-bold text-foreground">Property Calc</span>
+            <Link href="/" className="flex items-center" aria-label="Property Calc home">
+              <Image
+                src="/logo.png"
+                alt="Property Calc — smart numbers, better property decisions"
+                width={1133}
+                height={285}
+                className="h-10 w-auto"
+              />
             </Link>
             <p className="text-sm text-foreground/80">Every number you need before you buy</p>
           </div>
