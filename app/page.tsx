@@ -91,7 +91,7 @@ export default function Home() {
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground text-center mb-12">
           Why use Property Calc
         </h2>
-        <div className="flex flex-col space-y-16">
+        <div className="flex flex-col space-y-16 animate-children">
           {features.map((f, i) => {
             const Icon = f.icon
             const flip = i % 2 === 1  // even features: text right, visual left

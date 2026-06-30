@@ -58,7 +58,7 @@ export default function CashFlowCalculator() {
   const weekly = (annual: number) => annual / 52
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 animate-children">
       <Card>
         <CardHeader>
           <BarChart3 className="h-5 w-5 text-accent" />

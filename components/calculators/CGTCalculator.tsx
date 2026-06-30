@@ -46,7 +46,7 @@ export default function CGTCalculator() {
   )
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 animate-children">
       <Card>
         <CardHeader>
           <Receipt className="h-5 w-5 text-accent" />

@@ -40,7 +40,7 @@ export default function LMIEstimator() {
   )
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 animate-children">
       <Card>
         <CardHeader>
           <Shield className="h-5 w-5 text-accent" />
