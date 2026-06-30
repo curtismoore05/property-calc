@@ -88,6 +88,15 @@ body {
   padding: 1.25rem;
 }
 
+/* Blog article: emphasise the lead paragraph, like the source site */
+.blog-body > p:first-of-type {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  font-weight: 500;
+  color: hsl(var(--foreground));
+  margin-bottom: 2rem;
+}
+
 /* Page load-in animation — applied per route via RouteTransition */
 @keyframes page-enter {
   from {
