@@ -1,3 +1,2 @@
-﻿// cashFlow — placeholder
-export {}
-
+// Cash flow shares the property deal engine.
+export * from './propertyDeal'
