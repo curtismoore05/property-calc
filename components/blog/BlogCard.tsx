@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Calendar, User } from 'lucide-react'
+import { Calendar } from 'lucide-react'
 import { formatDate, type PostMeta } from '@/lib/blog'
 
 export default function BlogCard({ post }: { post: PostMeta }) {
@@ -14,10 +14,6 @@ export default function BlogCard({ post }: { post: PostMeta }) {
         <span className="flex items-center gap-1.5">
           <Calendar className="h-4 w-4" />
           {formatDate(post.date)}
-        </span>
-        <span className="flex items-center gap-1.5">
-          <User className="h-4 w-4" />
-          {post.author}
         </span>
       </div>
       <h2

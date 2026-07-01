@@ -17,7 +17,7 @@ export interface Post extends PostMeta {
   content: string
 }
 
-const DEFAULT_AUTHOR = 'Curtis Surge Real Estate'
+const DEFAULT_AUTHOR = 'Property Calc'
 
 function readPost(slug: string): Post {
   const raw = fs.readFileSync(path.join(BLOG_DIR, `${slug}.mdx`), 'utf8')
