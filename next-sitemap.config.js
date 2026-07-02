@@ -28,11 +28,32 @@ module.exports = {
       '/book-a-call': 0.6,
     }
 
+    // Static last-modified dates keyed by path. Only update these when the
+    // page content actually changes — don't use new Date() which would mark
+    // every page as modified on every build and dilute crawl budget signals.
+    const lastmod = {
+      '/': '2026-07-02',
+      '/stamp-duty-calculator': '2026-06-30',
+      '/borrowing-calculator': '2026-06-30',
+      '/rental-yield-calculator': '2026-06-30',
+      '/cashflow-calculator': '2026-06-30',
+      '/lmi-estimator': '2026-06-30',
+      '/offset-account-calculator': '2026-06-30',
+      '/cgt-calculator': '2026-07-02',
+      '/depreciation-calculator': '2026-07-02',
+      '/land-tax-calculator': '2026-06-30',
+      '/deal-scorer': '2026-06-30',
+      '/blog': '2026-07-02',
+      '/about': '2026-06-30',
+      '/contact': '2026-07-02',
+      '/book-a-call': '2026-07-02',
+    }
+
     return {
       loc: path,
       changefreq: config.changefreq,
       priority: priorities[path] ?? config.priority,
-      lastmod: new Date().toISOString(),
+      lastmod: lastmod[path] ?? '2026-06-30',
     }
   },
 }
