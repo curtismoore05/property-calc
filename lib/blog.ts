@@ -9,6 +9,7 @@ export interface PostMeta {
   title: string
   description: string
   date: string
+  updatedAt?: string
   author: string
   featured: boolean
 }
@@ -27,6 +28,7 @@ function readPost(slug: string): Post {
     title: data.title ?? slug,
     description: data.description ?? '',
     date: data.date ?? '',
+    updatedAt: data.updatedAt,
     author: data.author ?? DEFAULT_AUTHOR,
     featured: data.featured ?? false,
     content,
